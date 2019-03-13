@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ca.concordia.secure.sesession.models.SecureSession;
+import ca.concordia.secure.sesession.models.SecureSessionKey;
 import ca.concordia.secure.sesession.services.SecureSessionService;
 
 @RestController
@@ -21,7 +21,7 @@ public class SecureSessionController {
   }
   
   @RequestMapping("/generate")  
-  public SecureSession generate(@RequestParam(required = true) final int keySize) throws NoSuchAlgorithmException{
+  public SecureSessionKey generate(@RequestParam(required = true) final int keySize) throws NoSuchAlgorithmException{
     return secureSessionService.generateSecureSession(keySize);
   }  
 }
