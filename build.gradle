@@ -9,6 +9,14 @@ group = 'ca.concordia.secure'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'ca.concordia.secure.sesession.SesessionApplication'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+
 repositories {
 	mavenCentral()
 }
