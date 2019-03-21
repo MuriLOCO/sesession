@@ -12,7 +12,7 @@ public class RSAUtils {
    * @return
    * @throws NoSuchAlgorithmException
    */
-  public static KeyPair buildRSAeyPair(final int keySize) throws NoSuchAlgorithmException {        
+  public static KeyPair buildRSAeyPair(int keySize) throws NoSuchAlgorithmException {        
     KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
     keyPairGenerator.initialize(keySize);      
     return keyPairGenerator.genKeyPair();

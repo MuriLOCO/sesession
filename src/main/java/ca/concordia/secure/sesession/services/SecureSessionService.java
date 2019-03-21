@@ -28,8 +28,8 @@ public class SecureSessionService {
    * @return
    * @throws NoSuchAlgorithmException
    */
-  public SecureSessionKey generateSecureSession(final int keySize) throws NoSuchAlgorithmException {
-    final KeyPair rsaKeypair = RSAUtils.buildRSAeyPair(keySize);
+  public SecureSessionKey generateSecureSession(int keySize) throws NoSuchAlgorithmException {
+    KeyPair rsaKeypair = RSAUtils.buildRSAeyPair(keySize);
     return secureSessionRepository.save(new SecureSessionKey(rsaKeypair.getPrivate().getEncoded(),
           rsaKeypair.getPublic().getEncoded(), new Timestamp(new Date().getTime())));
   }

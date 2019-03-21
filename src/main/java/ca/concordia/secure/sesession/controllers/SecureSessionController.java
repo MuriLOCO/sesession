@@ -16,12 +16,12 @@ public class SecureSessionController {
   private final SecureSessionService secureSessionService;
   
   @Autowired
-  public SecureSessionController(final SecureSessionService secureSessionService) {
+  public SecureSessionController(SecureSessionService secureSessionService) {
    this.secureSessionService = secureSessionService;
   }
   
   @RequestMapping("/generate")  
-  public SecureSessionKey generate(@RequestParam(required = true) final int keySize) throws NoSuchAlgorithmException{
+  public SecureSessionKey generate(@RequestParam(required = true) int keySize) throws NoSuchAlgorithmException{    
     return secureSessionService.generateSecureSession(keySize);
   }  
 }
